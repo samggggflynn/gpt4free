@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 from datetime import datetime
 from hashlib import md5
@@ -21,6 +22,7 @@ from tls_client import Session as TLS
 
 from .api import Client as PoeClient
 from .mail import Emailnator
+import os
 
 SELENIUM_WEB_DRIVER_ERROR_MSG = b'''The error message you are receiving is due to the `geckodriver` executable not 
 being found in your system\'s PATH. To resolve this issue, you need to download the geckodriver and add its location 
@@ -294,10 +296,10 @@ class Account:
 class StreamingCompletion:
     @staticmethod
     def create(
-        model: str = 'gpt-4',
+        model: str = 'ChatGPT',
         custom_model: bool = None,
         prompt: str = 'hello world',
-        token: str = '',
+        token: str = os.environ.get('POE_TOKEN'),
         proxy: Optional[str] = None,
     ) -> Generator[PoeResponse, None, None]:
         _model = MODELS[model] if not custom_model else custom_model
@@ -334,10 +336,11 @@ class StreamingCompletion:
 class Completion:
     @staticmethod
     def create(
-        model: str = 'gpt-4',
+        # model: str = 'gpt-4',
+        model: str = 'ChatGPT',
         custom_model: str = None,
         prompt: str = 'hello world',
-        token: str = '',
+        token: str = os.environ.get('POE_TOKEN'),
         proxy: Optional[str] = None,
     ) -> PoeResponse:
         _model = MODELS[model] if not custom_model else custom_model
