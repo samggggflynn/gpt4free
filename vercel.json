@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "streamlit_app.py",
+      "use": "@now/python@1.0.0"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/streamlit_app.py"
+    }
+  ]
+}
