@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "streamlit_app.py",
-      "use": "@now/python@1.0.0"
+      "use": "@vercel/python@1.0.0"
     }
   ],
   "routes": [
