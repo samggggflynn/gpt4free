@@ -1,6 +1,6 @@
 import os
 import sys
-
+import time
 sys.path.append(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
 import streamlit as st
@@ -63,3 +63,12 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+poe_url = "www.poe.com"
+
+while True:
+    # 发送GET请求访问网页
+    refresh_page = requests.get(poe_url)
+    
+    # 指定刷新时间,单位秒
+    time.sleep(3000)  
