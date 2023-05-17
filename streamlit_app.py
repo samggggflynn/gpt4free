@@ -64,7 +64,7 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-poe_url = "www.poe.com"
+poe_url = "https://poe.com/"
 
 while True:
     # 发送GET请求访问网页
